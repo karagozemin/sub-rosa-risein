@@ -164,18 +164,23 @@ export function useRoundSession(active: UseCase, defaultRoundId: bigint | null) 
     }
   }
 
-  async function createRound() {
+  async function createRound(commitWindowSeconds: number = LIVE_COMMIT_WINDOW_SECONDS) {
     if (!CONTRACT_ID) {
       toast.push("error", "Contract not configured", "Set VITE_CONTRACT_ID in apps/web/.env.local");
       return;
     }
     if (!contract || !address) return;
     const id = active.id;
-    const workingId = toast.push("working", "Creating sealed round…", "Signing with Freighter");
+    const workingId = toast.push(
+      "working",
+      "Creating sealed round…",
+      `Commit window: ${commitWindowSeconds}s · signing with Freighter`,
+    );
     setStatus("working");
     try {
       const drand = quicknet();
-      const revealRound = await roundInSeconds(drand, LIVE_REVEAL_IN_SECONDS);
+      const revealInSeconds = commitWindowSeconds + LIVE_COMMIT_CLOSE_BEFORE_REVEAL_SECONDS;
+      const revealRound = await roundInSeconds(drand, revealInSeconds);
       const info = await drand.chain().info();
       const tReveal = Number(info.genesis_time) + Number(info.period) * revealRound;
       const commitDeadline = tReveal - LIVE_COMMIT_CLOSE_BEFORE_REVEAL_SECONDS;
@@ -199,7 +204,7 @@ export function useRoundSession(active: UseCase, defaultRoundId: bigint | null) 
         roundCreatedAt: Date.now(),
       });
       setStatus("ok");
-      const msg = `Round #${nextRoundId} · commit in ~${LIVE_COMMIT_WINDOW_SECONDS}s · R=${revealRound}`;
+      const msg = `Round #${nextRoundId} · commit window ~${commitWindowSeconds}s · R=${revealRound}`;
       push(msg, id);
       toast.dismiss(workingId);
       toast.push("success", "Round created on Stellar", msg);

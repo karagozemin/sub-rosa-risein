@@ -15,9 +15,10 @@ import type { UseCase, UseCaseId } from "../config/useCases";
 import { USE_CASES } from "../config/useCases";
 import { DEMO_TRACE } from "../demo/trace";
 import {
+  COMMIT_DURATION_PRESETS,
   CONTRACT_ID,
+  DEFAULT_COMMIT_DURATION_SECONDS,
   DEFAULT_ROUND_ID,
-  LIVE_COMMIT_WINDOW_SECONDS,
   formatDemoAmount,
   toDemoEscrowAmount,
 } from "../lib/chain";
@@ -88,7 +89,7 @@ function PhaseGuide(props: {
   entryValue: number;
   onEntryChange: (v: number) => void;
   connect: () => void;
-  createRound: () => void;
+  createRound: (durationSeconds: number) => void;
   joinRound: (id: string) => void;
   commitEntry: () => void;
   openAndReveal: () => void;
@@ -113,13 +114,23 @@ function PhaseGuide(props: {
     openAndReveal,
   } = props;
   const [joinId, setJoinId] = useState("");
+  const [duration, setDuration] = useState<number>(DEFAULT_COMMIT_DURATION_SECONDS);
+
+  function formatDurationLabel(seconds: number): string {
+    if (seconds < 60) return `${seconds}s`;
+    const mins = Math.floor(seconds / 60);
+    const rem = seconds % 60;
+    return rem === 0 ? `${mins} min` : `${mins}m ${rem}s`;
+  }
 
   const working = status === "working";
   const commitSeconds = commitSecondsRemaining ?? 0;
+  // Use the selected duration (or a sensible fallback) so the progress bar
+  // scales with whatever window the operator picked at creation time.
   const commitPercent =
     commitSecondsRemaining == null
       ? 0
-      : Math.max(0, Math.min(100, (commitSeconds / LIVE_COMMIT_WINDOW_SECONDS) * 100));
+      : Math.max(0, Math.min(100, (commitSeconds / Math.max(duration, 1)) * 100));
 
   let tone = "idle";
   let eyebrow = "Next step";
@@ -145,13 +156,15 @@ function PhaseGuide(props: {
     tone = "ready";
     eyebrow = "Step 1 · sealed round";
     title = "Create a round";
-    detail = `Open a ${LIVE_COMMIT_WINDOW_SECONDS}-second commit window — or join an existing round id and submit your sealed entry alongside other bidders.`;
-    timerValue = `~${LIVE_COMMIT_WINDOW_SECONDS}s window`;
-    ctaLabel = "Create round";
-    cta = createRound;
+    detail = `Pick a commit window length, then create. Anyone with the round id can join and seal their own entry before the window closes.`;
+    timerValue = `~${formatDurationLabel(duration)} window`;
+    ctaLabel = `Create · ${formatDurationLabel(duration)}`;
+    cta = () => createRound(duration);
     showJoin = true;
   } else if (roundId != null && !committed && !commitClosed) {
-    tone = commitSeconds <= 6 ? "danger" : "urgent";
+    // Danger threshold scales with the window: ~25% of remaining time, min 4s, max 12s.
+    const dangerThreshold = Math.max(4, Math.min(12, Math.round(duration * 0.25)));
+    tone = commitSeconds <= dangerThreshold ? "danger" : "urgent";
     eyebrow = `Step 2 · ${useCase.actorRole} commit`;
     title =
       useCase.inputKind === "ballot"
@@ -176,10 +189,10 @@ function PhaseGuide(props: {
     tone = "danger";
     eyebrow = "Missed";
     title = "Commit window closed";
-    detail = `Create a new round and seal within ${LIVE_COMMIT_WINDOW_SECONDS} seconds.`;
+    detail = `Create a new round (pick a longer window if you need more time to coordinate).`;
     timerValue = "closed";
     ctaLabel = "New round";
-    cta = createRound;
+    cta = () => createRound(duration);
   } else if (committed && revealedCount > 0) {
     tone = "complete";
     eyebrow = "Done · revealed";
@@ -336,6 +349,35 @@ function PhaseGuide(props: {
             <small>
               Sealed escrow: {formatDemoAmount(toDemoEscrowAmount(entryValue))}
             </small>
+          </motion.div>
+        ) : null}
+
+        {showJoin ? (
+          <motion.div
+            className="duration-picker"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            <label>Commit window</label>
+            <div className="duration-chips" role="radiogroup" aria-label="Commit window length">
+              {COMMIT_DURATION_PRESETS.map((preset) => {
+                const selected = duration === preset.seconds;
+                return (
+                  <button
+                    key={preset.seconds}
+                    type="button"
+                    role="radio"
+                    aria-checked={selected}
+                    className={`duration-chip ${selected ? "selected" : ""}`}
+                    onClick={() => setDuration(preset.seconds)}
+                  >
+                    <strong>{preset.label}</strong>
+                    <small>{preset.helper}</small>
+                  </button>
+                );
+              })}
+            </div>
           </motion.div>
         ) : null}
 
@@ -595,7 +637,7 @@ function LivePanel({
         entryValue={entryValue}
         onEntryChange={setEntryValue}
         connect={() => void connect()}
-        createRound={() => void createRound()}
+        createRound={(duration) => void createRound(duration)}
         joinRound={(id) => void joinRound(id)}
         commitEntry={() => void commitEntry()}
         openAndReveal={() => void openAndReveal()}

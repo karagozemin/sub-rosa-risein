@@ -670,6 +670,82 @@
   font-size: 0.78rem;
 }
 
+/* === Commit window picker — operator chooses round duration === */
+.duration-picker {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius);
+  background: rgba(91, 108, 255, 0.04);
+}
+
+.duration-picker > label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.duration-chips {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.duration-chip {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  background: var(--bg-1);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 180ms var(--ease),
+    background 180ms var(--ease),
+    transform 180ms var(--ease);
+}
+
+.duration-chip:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+
+.duration-chip strong {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.duration-chip small {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.duration-chip.selected {
+  border-color: rgba(91, 108, 255, 0.55);
+  background: rgba(91, 108, 255, 0.1);
+  box-shadow: 0 0 18px -4px rgba(91, 108, 255, 0.32);
+}
+
+.duration-chip.selected small {
+  color: rgba(91, 108, 255, 0.85);
+}
+
+@media (max-width: 680px) {
+  .duration-chips {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* === Join existing round — secondary action under create CTA === */
 .join-form {
   display: grid;
