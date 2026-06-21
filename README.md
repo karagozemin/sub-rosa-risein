@@ -24,7 +24,7 @@ status while the `Orange` tab contains the independent Rise In evidence flow.
 | Item | Value |
 | --- | --- |
 | Network | Stellar Testnet only |
-| Live demo | **TODO:** https://REPLACE-WITH-LIVE-DEMO.example |
+| Live demo | https://sub-rosa-risein.vercel.app |
 | Soroban contract | `CAEIOZEPTKBDERVUJVTVOZEXPS2PPUHODOGEBUXCTUKD6KUDM3Z4MJ2I` |
 | Contract deployment tx | [`28d683d107e928d0ab7850e1622135995188bf865f655ba874bd12605faf9965`](https://stellar.expert/explorer/testnet/tx/28d683d107e928d0ab7850e1622135995188bf865f655ba874bd12605faf9965) |
 | Contract interaction tx | **TODO:** REPLACE_AFTER_FIRST_CREATE_OR_COMMIT |
