@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/sub-rosa-readme.png" alt="Sub Rosa" width="250" />
+</p>
+
 # Sub Rosa Rise In Sprint
 
 **Level 3 / Orange Belt mini dApp for Stellar Journey to Mastery**
