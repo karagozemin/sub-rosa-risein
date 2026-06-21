@@ -27,12 +27,13 @@ status while the `Orange` tab contains the independent Rise In evidence flow.
 | Live demo | https://sub-rosa-risein.vercel.app |
 | Soroban contract | `CAEIOZEPTKBDERVUJVTVOZEXPS2PPUHODOGEBUXCTUKD6KUDM3Z4MJ2I` |
 | Contract deployment tx | [`28d683d107e928d0ab7850e1622135995188bf865f655ba874bd12605faf9965`](https://stellar.expert/explorer/testnet/tx/28d683d107e928d0ab7850e1622135995188bf865f655ba874bd12605faf9965) |
-| Contract interaction tx | **TODO:** REPLACE_AFTER_FIRST_CREATE_OR_COMMIT |
-| XLM payment tx | **TODO:** REPLACE_AFTER_TESTNET_PAYMENT |
-| CI | GitHub Actions workflow included |
+| Contract interaction tx | [`b748eef72456a0e8f51cb28d8a948fda8fc431df2077cd1d8802b7c2be3940ac`](https://stellar.expert/explorer/testnet/tx/b748eef72456a0e8f51cb28d8a948fda8fc431df2077cd1d8802b7c2be3940ac) |
+| XLM payment tx | [`3a07dbbaaf2086a84a4c36c53dfeb87747c7b4b0c23b3abaa33cccf4dc94f177`](https://stellar.expert/explorer/testnet/tx/3a07dbbaaf2086a84a4c36c53dfeb87747c7b4b0c23b3abaa33cccf4dc94f177) |
+| Demo video | https://youtu.be/NDuR5B2ztQo |
+| CI | [GitHub Actions](https://github.com/karagozemin/sub-rosa-risein/actions/workflows/ci.yml) |
 
-Placeholders are intentional. They must be replaced with real deployment and
-transaction evidence; this repository never invents transaction hashes.
+All transaction hashes above are real Stellar Testnet evidence; this repository
+does not invent transaction hashes.
 
 ## Belt evidence
 
@@ -245,6 +246,8 @@ Testnet contract and static-site deployments remain deliberate manual steps.
 - [ ] Live deployed app
 
 ## Demo video checklist
+
+Demo video: https://youtu.be/NDuR5B2ztQo
 
 - [ ] 3–5 minute recording
 - [ ] State that this is an independent Rise In mini dApp
