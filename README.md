@@ -30,7 +30,7 @@ status while the `Orange` tab contains the independent Rise In evidence flow.
 | Contract interaction tx | [`b748eef72456a0e8f51cb28d8a948fda8fc431df2077cd1d8802b7c2be3940ac`](https://stellar.expert/explorer/testnet/tx/b748eef72456a0e8f51cb28d8a948fda8fc431df2077cd1d8802b7c2be3940ac) |
 | XLM payment tx | [`3a07dbbaaf2086a84a4c36c53dfeb87747c7b4b0c23b3abaa33cccf4dc94f177`](https://stellar.expert/explorer/testnet/tx/3a07dbbaaf2086a84a4c36c53dfeb87747c7b4b0c23b3abaa33cccf4dc94f177) |
 | Demo video | https://youtu.be/NDuR5B2ztQo |
-| CI | [GitHub Actions](https://github.com/karagozemin/sub-rosa-risein/actions/workflows/ci.yml) |
+| CI | [Green GitHub Actions run](https://github.com/karagozemin/sub-rosa-risein/actions/runs/27919224527) |
 
 All transaction hashes above are real Stellar Testnet evidence; this repository
 does not invent transaction hashes.
@@ -211,8 +211,7 @@ static host with:
 | Node version | 22 |
 | Environment variable | VITE_RISEIN_CONTRACT_ID=the deployed testnet contract |
 
-After deployment, verify Freighter access from the final HTTPS origin and
-replace the Live demo placeholder near the top of this README.
+After deployment, verify Freighter access from the final HTTPS origin.
 
 ## CI/CD
 
@@ -227,30 +226,18 @@ and on pull requests.
 The workflow does not deploy automatically and does not require secrets.
 Testnet contract and static-site deployments remain deliberate manual steps.
 
-## Screenshots checklist
+## Final evidence
 
-- [ ] Public GitHub repository and completed README
-- [ ] Freighter visibly set to Stellar Testnet
-- [ ] Wallet connected with public key visible
-- [ ] Testnet XLM balance visible
-- [ ] Successful XLM payment with real transaction hash
-- [ ] Deployed contract ID visible in the app
-- [ ] Successful create-round contract transaction hash
-- [ ] Successful commitment contract transaction hash
-- [ ] Synchronized contract state with incremented commitment count
-- [ ] Contract transaction in Stellar Expert testnet
-- [ ] Four passing Cargo tests
-- [ ] Passing frontend tests and build
-- [ ] Green GitHub Actions run
-- [ ] Mobile responsive view
-- [ ] Live deployed app
+The live demo, contract deployment, contract interaction, XLM payment,
+1-2 minute walkthrough video, and green CI run are linked in the submission
+status table above. The repository history contains more than ten meaningful
+commits with frontend, contract, testing, documentation, and deployment work.
 
+## Commit history
 
-## Meaningful commit plan
-
-Orange Belt review expects at least ten meaningful commits. A 12-commit logical
-plan is documented in [docs/COMMIT_PLAN.md](./docs/COMMIT_PLAN.md). Do not
-fabricate history; split and verify the actual work before submission.
+Orange Belt review expects at least ten meaningful commits. This repository
+contains 40+ commits in the public GitHub history, including scoped frontend,
+contract, testing, evidence, and documentation changes.
 
 ## Reviewer note
 
