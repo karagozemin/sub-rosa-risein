@@ -1,17 +1,10 @@
 [workspace]
 resolver = "2"
-members = ["contracts/round"]
-
-[workspace.package]
-version = "0.1.0"
-edition = "2021"
-license = "MIT"
-authors = ["Sub Rosa"]
+members = ["contracts/rise-in-round"]
 
 [workspace.dependencies]
-soroban-sdk = "22"
+soroban-sdk = "22.0.8"
 
-# Soroban release profile (size-optimized wasm, overflow checks ON for safety).
 [profile.release]
 opt-level = "z"
 overflow-checks = true

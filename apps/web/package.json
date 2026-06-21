@@ -1,37 +1,29 @@
 {
-  "name": "@sub-rosa/web",
-  "version": "0.1.0",
+  "name": "@sub-rosa/rise-in-web",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Jury demo UI — lifecycle, observer, agents, x402, keeper, seal-off vs seal-on attack, mandate cap safety lab.",
+  "description": "Sub Rosa Rise In Sprint — Stellar Orange Belt mini dApp.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
   },
   "dependencies": {
     "@stellar/freighter-api": "^6.0.1",
-    "@stellar/stellar-sdk": "^15.1.0",
-    "@sub-rosa/agent": "workspace:*",
-    "@sub-rosa/sdk": "workspace:*",
-    "@sub-rosa/tlock": "workspace:*",
+    "@stellar/stellar-sdk": "^16.0.1",
     "buffer": "^6.0.3",
-    "crypto-browserify": "^3.12.1",
-    "events": "^3.3.0",
-    "framer-motion": "^12.40.0",
-    "passkey-kit": "^0.12.0",
-    "process": "^0.11.10",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "stream-browserify": "^3.0.0"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@rollup/plugin-inject": "^5.0.5",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
     "typescript": "^6.0.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
   }
 }

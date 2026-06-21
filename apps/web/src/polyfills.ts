@@ -1,3 +1,4 @@
-import process from "process/browser";
+import { Buffer } from "buffer";
 
-(globalThis as { process: typeof process }).process = process;
+const runtime = globalThis as typeof globalThis & { Buffer?: typeof Buffer };
+runtime.Buffer ??= Buffer;

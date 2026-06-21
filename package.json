@@ -1,41 +1,26 @@
 {
-  "name": "sub-rosa",
-  "version": "0.1.0",
+  "name": "sub-rosa-risein",
+  "version": "1.0.0",
   "private": true,
-  "description": "Verifiable allocation infrastructure for Stellar grants, hackathons, bounties, RFPs, and sealed auctions.",
+  "description": "Independent Stellar Journey to Mastery Orange Belt mini dApp.",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=22"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "scripts": {
-    "contract:build": "stellar contract build",
-    "contract:test": "cargo test -p sub-rosa-round",
-    "bindings:generate": "stellar contract build --out-dir artifacts && rm -rf .tmp-bindings && stellar contract bindings typescript --wasm artifacts/sub_rosa_round.wasm --output-dir .tmp-bindings --overwrite && cp .tmp-bindings/src/index.ts packages/round-bindings/src/index.ts && rm -rf .tmp-bindings",
-    "sdk:test": "pnpm --filter @sub-rosa/sdk test",
-    "sdk:typecheck": "pnpm --filter @sub-rosa/sdk typecheck",
-    "sdk:smoke": "bash packages/sdk/scripts/live-smoke.sh",
-    "mainnet:deploy": "bash packages/sdk/scripts/mainnet-deploy.sh",
-    "mainnet:settle": "bash services/keeper/scripts/mainnet-settle.sh",
-    "mainnet:verify": "bash packages/sdk/scripts/mainnet-verify.sh",
-    "mainnet:micro": "bash packages/sdk/scripts/mainnet-micro.sh",
-    "tlock:test": "pnpm --filter @sub-rosa/tlock test",
-    "keeper:test": "pnpm --filter @sub-rosa/keeper test",
-    "keeper:e2e": "bash services/keeper/scripts/keeper-e2e.sh",
-    "keeper:watch": "pnpm --filter @sub-rosa/keeper watch",
-    "lifecycle:e2e": "bash services/keeper/scripts/lifecycle-e2e.sh",
-    "appraisal:test": "pnpm --filter @sub-rosa/appraisal-api test",
-    "appraisal:typecheck": "pnpm --filter @sub-rosa/appraisal-api typecheck",
-    "appraisal:start": "pnpm --filter @sub-rosa/appraisal-api start",
-    "appraisal:e2e": "bash services/appraisal-api/scripts/x402-e2e.sh",
-    "agent:test": "pnpm --filter @sub-rosa/agent test",
-    "agent:typecheck": "pnpm --filter @sub-rosa/agent typecheck",
-    "agents:e2e": "bash services/agent/scripts/agents-e2e.sh",
-    "web:dev": "pnpm --filter @sub-rosa/web dev",
-    "web:build": "pnpm --filter @sub-rosa/web build",
-    "web:typecheck": "pnpm --filter @sub-rosa/web typecheck"
+    "dev": "pnpm --filter @sub-rosa/rise-in-web dev",
+    "build": "pnpm --filter @sub-rosa/rise-in-web build",
+    "preview": "pnpm --filter @sub-rosa/rise-in-web preview",
+    "typecheck": "pnpm --filter @sub-rosa/rise-in-web typecheck",
+    "test": "pnpm --filter @sub-rosa/rise-in-web test",
+    "contract:build": "stellar contract build --package sub-rosa-risein-contract",
+    "contract:test": "cargo test -p sub-rosa-risein-contract",
+    "contract:deploy:testnet": "bash scripts/deploy-testnet.sh"
   }
 }

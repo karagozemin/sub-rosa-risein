@@ -1,0 +1,16 @@
+[package]
+name = "sub-rosa-risein-contract"
+version = "1.0.0"
+edition = "2021"
+publish = false
+description = "Educational sealed allocation mini-contract for the Sub Rosa Rise In Sprint."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+soroban-sdk = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+
