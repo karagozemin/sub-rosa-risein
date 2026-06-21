@@ -37,44 +37,45 @@ does not invent transaction hashes.
 
 ## Belt evidence
 
-### White Belt evidence
+## Orange Belt scope coverage
 
-- Freighter wallet detection and explicit connection
-- Local dApp disconnect
-- Hard check that Freighter uses Stellar Testnet
-- Connected public key display
-- Native XLM balance loaded from Horizon testnet
-- Signed testnet XLM payment flow
-- Loading, rejection, network, validation, and Horizon failure states
-- Real payment transaction hash and Stellar Expert testnet link
+This submission targets **Level 3 / Orange Belt**. The app includes the wallet, payment, and Stellar transaction fundamentals expected from earlier levels, but the primary submission focus is the Orange Belt smart-contract dApp flow.
 
-### Yellow Belt evidence
+### Wallet and payment foundation
 
-- Stellar SDK transaction construction in the browser
-- Freighter signs prepared XDR; no secret key enters the app
-- Recipient StrKey validation and 7-decimal XLM amount validation
-- Testnet network passphrase enforced before every signature
-- Balance refresh after a confirmed payment
-- Responsive evidence UI with readable success/error states
-- Frontend unit tests for addresses, amounts, and deterministic commitment
-  hashing
+* Freighter wallet connection and local disconnect
+* Stellar Testnet network check
+* Connected public key display
+* Native XLM balance loaded from Horizon testnet
+* Signed testnet XLM payment flow
+* Real payment transaction hash with Stellar Expert testnet link
+* Loading, rejection, network, validation, and Horizon failure states
+
+### Stellar transaction foundation
+
+* Browser-side Stellar SDK transaction construction
+* Freighter-signed XDR; no secret key enters the app
+* Recipient StrKey validation
+* 7-decimal XLM amount validation
+* Testnet network passphrase enforced before signatures
+* Balance refresh after confirmed payment
+* Frontend tests for addresses, amounts, and deterministic commitment hashing
 
 ### Orange Belt evidence
 
-- Soroban smart contract in
-  [contracts/rise-in-round](./contracts/rise-in-round)
-- End-to-end create-round and submit-commit contract transactions
-- Freighter authorization for contract calls
-- Soroban RPC simulation, transaction preparation, submission, and confirmation
-  polling
-- Contract interaction transaction hash displayed in the frontend
-- Getter-based state synchronization after each confirmed invocation
-- Contract events for round creation and commitment storage
-- Live round title, owner, timestamp, and commitment count in the UI
-- Four contract tests covering success and duplicate guards
-- Frontend tests and GitHub Actions CI
-- Testnet deployment script and static-site deployment instructions
-- Responsive desktop/mobile layout
+* Soroban smart contract in [contracts/rise-in-round](./contracts/rise-in-round)
+* End-to-end `create_round` and `submit_commit` contract transactions
+* Freighter authorization for contract calls
+* Soroban RPC simulation, transaction preparation, submission, and confirmation polling
+* Contract interaction transaction hash displayed in the frontend
+* Getter-based state synchronization after each confirmed invocation
+* Contract events for round creation and commitment storage
+* Live round title, owner, timestamp, and commitment count in the UI
+* Four contract tests covering success and duplicate guards
+* Frontend tests and GitHub Actions CI
+* Testnet deployment script and static-site deployment instructions
+* Responsive desktop/mobile layout
+
 
 ## Mini dApp scope
 
