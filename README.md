@@ -98,6 +98,9 @@ Contract methods:
 
 ## Architecture
 
+For the full system map, trust boundaries, Sub Rosa premium demo context, and
+Rise In Orange evidence path, see [ARCHITECTURE.md](./ARCHITECTURE.md).
+
 1. React/Vite requests access to Freighter and verifies Testnet.
 2. Horizon testnet supplies account sequence data and XLM balances.
 3. The frontend builds XLM payments or Soroban contract invocations.
