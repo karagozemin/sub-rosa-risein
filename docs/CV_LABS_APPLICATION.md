@@ -207,7 +207,7 @@ with SDF and will not charge the same deliverable to both programs.
 
 ## Evidence Links
 
-- Repository: https://github.com/karagozemin/Sub-Rosa
+- Repository: https://github.com/karagozemin/sub-rosa-risein
 - Mainnet contract:
   https://stellar.expert/explorer/public/contract/CA7KSDEYJEPGZEB2ZROTLUWKQQ6GIRIQNGG6Z745MZ34QHP4UJPWODEX
 - SCF #44 round:

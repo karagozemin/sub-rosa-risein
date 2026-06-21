@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/karagozemin/Sub-Rosa.git",
+    "url": "https://github.com/karagozemin/sub-rosa-risein.git",
     "directory": "packages/tlock"
   },
   "main": "src/index.ts",
