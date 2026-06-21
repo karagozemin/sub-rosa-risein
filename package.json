@@ -18,7 +18,7 @@
     "build": "pnpm --filter @sub-rosa/web build",
     "preview": "pnpm --filter @sub-rosa/web preview",
     "typecheck": "pnpm --filter @sub-rosa/web typecheck",
-    "test": "pnpm --filter @sub-rosa/sdk test && pnpm --filter @sub-rosa/tlock test:unit",
+    "test": "pnpm --filter @sub-rosa/web test && pnpm --filter @sub-rosa/sdk test && pnpm --filter @sub-rosa/tlock test:unit",
     "contract:build": "stellar contract build --package sub-rosa-risein-contract",
     "contract:test": "cargo test -p sub-rosa-risein-contract",
     "contract:deploy:testnet": "bash scripts/deploy-testnet.sh"

@@ -8,7 +8,7 @@
 
 .app-shell {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 16px;
   align-items: start;
   min-height: calc(100vh - 32px);
@@ -52,7 +52,7 @@
 
 .mode-switch {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 4px;
   padding: 4px;
   margin-bottom: 6px;
@@ -61,16 +61,249 @@
   background: var(--surface-0);
 }
 
+/* === Rise In Orange evidence panel === */
+.risein-orange {
+  display: grid;
+  gap: 16px;
+}
+
+.orange-notice,
+.orange-card,
+.orange-state,
+.orange-feedback {
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-sm);
+}
+
+.orange-notice {
+  padding: 18px 20px;
+  border-color: rgba(255, 211, 106, 0.32);
+  background: rgba(255, 211, 106, 0.06);
+}
+
+.orange-notice strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--amber);
+  font-family: var(--display);
+}
+
+.orange-notice p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.orange-wallet {
+  align-items: center;
+}
+
+.orange-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.orange-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.orange-card,
+.orange-state {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 18px;
+}
+
+.orange-card-head {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.orange-card-head > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(110, 245, 176, 0.35);
+  border-radius: 10px;
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  background: rgba(110, 245, 176, 0.08);
+}
+
+.orange-card-head h2 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.orange-card-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.orange-card label {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.orange-card input,
+.orange-inline-input {
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--line-1);
+  border-radius: 10px;
+  color: var(--ink);
+  background: var(--surface-0);
+}
+
+.orange-card input {
+  width: 100%;
+  padding: 0 12px;
+}
+
+.orange-card input:disabled {
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+
+.orange-inline-input {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  overflow: hidden;
+}
+
+.orange-inline-input input {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.orange-inline-input span {
+  padding: 0 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.orange-state dl {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.orange-state dl > div {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line-1);
+  border-radius: 10px;
+  background: var(--surface-0);
+}
+
+.orange-state dt {
+  margin-bottom: 4px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.orange-state dd {
+  margin: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.orange-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+.orange-feedback {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.orange-feedback.success {
+  border-color: rgba(110, 245, 176, 0.36);
+  background: rgba(110, 245, 176, 0.06);
+}
+
+.orange-feedback.error {
+  border-color: rgba(255, 123, 114, 0.36);
+  background: rgba(255, 123, 114, 0.06);
+}
+
+.orange-feedback strong {
+  color: var(--ink);
+  font-family: var(--display);
+}
+
+.orange-feedback p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.orange-feedback code {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--green);
+}
+
+.orange-feedback a {
+  width: fit-content;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.orange-feedback div {
+  display: grid;
+  gap: 4px;
+}
+
+.orange-feedback span {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
 .mode-switch button {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 36px;
-  padding: 0 12px;
+  min-width: 0;
+  padding: 0 10px;
   border: 0;
   border-radius: 8px;
   color: var(--muted);
   font-family: var(--display);
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
   background: transparent;
   cursor: pointer;
   transition: color 180ms var(--ease);
@@ -2292,7 +2525,7 @@
   }
 
   .mode-switch {
-    flex: 1 1 200px;
+    flex: 1 1 280px;
   }
 
   .case-nav-section-label {
@@ -2330,6 +2563,14 @@
     grid-template-columns: 1fr;
   }
 
+  .orange-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .orange-state dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .live-state {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2353,6 +2594,23 @@
   }
 
   .receipt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-switch {
+    grid-template-columns: 1fr;
+  }
+
+  .orange-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .orange-actions button {
+    flex: 1 1 100%;
+  }
+
+  .orange-state dl {
     grid-template-columns: 1fr;
   }
 }

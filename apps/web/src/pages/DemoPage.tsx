@@ -10,6 +10,7 @@ import { MainnetProofCard } from "../components/MainnetProofCard";
 import { MandateCapLab } from "../components/MandateCapLab";
 import { ObserverView } from "../components/ObserverView";
 import { OutcomePanel } from "../components/OutcomePanel";
+import { RiseInOrangePanel } from "../components/RiseInOrangePanel";
 import { SettlementRail } from "../components/SettlementRail";
 import type { UseCase, UseCaseId } from "../config/useCases";
 import { USE_CASES } from "../config/useCases";
@@ -29,7 +30,7 @@ import { LOGO_SRC } from "../lib/chain";
 import { ConfettiBurst } from "../ui/Confetti";
 import { CountUp } from "../ui/CountUp";
 
-type DemoMode = "live" | "evidence";
+type DemoMode = "live" | "orange" | "evidence";
 
 function FlowSteps({
   address,
@@ -839,7 +840,7 @@ export function DemoPage({
   const sidebarDrand =
     mode === "evidence"
       ? { mode: "proof" as const, targetRound: DEMO_TRACE.meta.revealRound }
-      : session.roundId != null
+      : mode === "live" && session.roundId != null
         ? { mode: "live-round" as const, targetRound: session.targetRound }
         : { mode: "idle" as const, targetRound: null };
 
@@ -863,6 +864,18 @@ export function DemoPage({
             >
               {mode === "live" ? <motion.span layoutId="mode-pill" className="mode-pill" /> : null}
               Live round
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={mode === "orange"}
+              className={mode === "orange" ? "active" : ""}
+              onClick={() => setMode("orange")}
+            >
+              {mode === "orange" ? (
+                <motion.span layoutId="mode-pill" className="mode-pill" />
+              ) : null}
+              Orange
             </button>
             <button
               type="button"
@@ -913,6 +926,8 @@ export function DemoPage({
                 session={session}
                 onCelebrate={() => setConfettiTick((t) => t + 1)}
               />
+            ) : mode === "orange" ? (
+              <RiseInOrangePanel />
             ) : (
               <EvidencePanel />
             )}
