@@ -245,25 +245,6 @@ Testnet contract and static-site deployments remain deliberate manual steps.
 - [ ] Mobile responsive view
 - [ ] Live deployed app
 
-## Demo video checklist
-
-Demo video: https://youtu.be/NDuR5B2ztQo
-
-- [ ] 3–5 minute recording
-- [ ] State that this is an independent Rise In mini dApp
-- [ ] Show repository and belt evidence sections
-- [ ] Connect Freighter on Testnet
-- [ ] Show balance and complete an XLM payment
-- [ ] Show payment hash
-- [ ] Create a Soroban round
-- [ ] Submit a locally hashed commitment
-- [ ] Show both contract hashes
-- [ ] Refresh and explain synchronized contract state
-- [ ] Show Stellar Expert verification
-- [ ] Show contract/frontend tests and green CI
-- [ ] Do not expose any secret or recovery phrase
-
-The narrated walkthrough is in [docs/DEMO_SCRIPT.md](./docs/DEMO_SCRIPT.md).
 
 ## Meaningful commit plan
 
