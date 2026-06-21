@@ -12,13 +12,17 @@ x CV Labs Accelerator. This repository stays separate so its code, deployment,
 evidence, and commit history can be shaped specifically for the Rise In
 progression without changing those submissions.
 
+The premium Sub Rosa interface also carries the project's **Hack Privacy #1**
+status while the `Orange` tab contains the independent Rise In evidence flow.
+
 ## Submission status
 
 | Item | Value |
 | --- | --- |
 | Network | Stellar Testnet only |
 | Live demo | **TODO:** https://REPLACE-WITH-LIVE-DEMO.example |
-| Soroban contract | **TODO:** CA_REPLACE_AFTER_TESTNET_DEPLOYMENT |
+| Soroban contract | `CAEIOZEPTKBDERVUJVTVOZEXPS2PPUHODOGEBUXCTUKD6KUDM3Z4MJ2I` |
+| Contract deployment tx | [`28d683d107e928d0ab7850e1622135995188bf865f655ba874bd12605faf9965`](https://stellar.expert/explorer/testnet/tx/28d683d107e928d0ab7850e1622135995188bf865f655ba874bd12605faf9965) |
 | Contract interaction tx | **TODO:** REPLACE_AFTER_FIRST_CREATE_OR_COMMIT |
 | XLM payment tx | **TODO:** REPLACE_AFTER_TESTNET_PAYMENT |
 | CI | GitHub Actions workflow included |
@@ -165,7 +169,7 @@ The script prints the real contract ID. Put that public value in:
 
 ```bash
 # apps/web/.env.local
-VITE_RISEIN_CONTRACT_ID=CA_REPLACE_WITH_REAL_TESTNET_CONTRACT_ID
+VITE_RISEIN_CONTRACT_ID=CAEIOZEPTKBDERVUJVTVOZEXPS2PPUHODOGEBUXCTUKD6KUDM3Z4MJ2I
 ```
 
 Restart pnpm dev after changing the environment file. Do not commit a secret
