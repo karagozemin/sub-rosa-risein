@@ -35,8 +35,6 @@ status while the `Orange` tab contains the independent Rise In evidence flow.
 All transaction hashes above are real Stellar Testnet evidence; this repository
 does not invent transaction hashes.
 
-## Belt evidence
-
 ## Orange Belt scope coverage
 
 This submission targets **Level 3 / Orange Belt**. The app includes the wallet, payment, and Stellar transaction fundamentals expected from earlier levels, but the primary submission focus is the Orange Belt smart-contract dApp flow.
@@ -133,9 +131,9 @@ pnpm dev
 
 Open [http://localhost:5173](http://localhost:5173).
 
-The White/Yellow wallet and XLM payment flow works without a contract ID. The
-Orange contract controls remain disabled until VITE_RISEIN_CONTRACT_ID contains a
-valid deployed testnet contract address.
+The wallet and XLM payment flow work without a contract ID. The Orange
+contract controls remain disabled until VITE_RISEIN_CONTRACT_ID contains a valid
+deployed testnet contract address.
 
 ## Test the project
 
@@ -199,7 +197,7 @@ commit once deployed.
 8. Refresh contract state and verify that the commitment count increased.
 9. Open each transaction link in Stellar Expert testnet.
 
-## Live demo deployment
+## Deployment
 
 This is a static Vite application. Deploy it to Vercel, Netlify, or another
 static host with:
@@ -243,8 +241,7 @@ contract, testing, evidence, and documentation changes.
 ## Reviewer note
 
 This repository is intentionally independent from the production Sub Rosa
-codebase. It exists only for the Rise In White, Yellow, and Orange Belt learning
-progression while preserving the integrity of the main Sub Rosa SCF #44 and
-Stellar x CV Labs submissions. The contract here is a deliberately reduced
-educational mini dApp and must not be interpreted as the full production
-protocol.
+codebase. It exists only for the Rise In Level 3 / Orange Belt submission while
+preserving the integrity of the main Sub Rosa SCF #44 and Stellar x CV Labs
+submissions. The contract here is a deliberately reduced educational mini dApp
+and must not be interpreted as the full production protocol.
