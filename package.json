@@ -14,11 +14,10 @@
     ]
   },
   "scripts": {
-    "dev": "pnpm --filter @sub-rosa/rise-in-web dev",
-    "build": "pnpm --filter @sub-rosa/rise-in-web build",
-    "preview": "pnpm --filter @sub-rosa/rise-in-web preview",
-    "typecheck": "pnpm --filter @sub-rosa/rise-in-web typecheck",
-    "test": "pnpm --filter @sub-rosa/rise-in-web test",
+    "dev": "pnpm --filter @sub-rosa/web dev",
+    "build": "pnpm --filter @sub-rosa/web build",
+    "preview": "pnpm --filter @sub-rosa/web preview",
+    "typecheck": "pnpm --filter @sub-rosa/web typecheck",
     "contract:build": "stellar contract build --package sub-rosa-risein-contract",
     "contract:test": "cargo test -p sub-rosa-risein-contract",
     "contract:deploy:testnet": "bash scripts/deploy-testnet.sh"
